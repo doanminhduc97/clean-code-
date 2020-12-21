@@ -16,3 +16,27 @@ public float getAge() {
     return birthDay.until(LocalDate.now(), ChronoUnit.DAYS) / 365.2425f;    
 }
 ```
+3. Cách tính số năm tháng làm việc của 1 nhân viên như sau: 
+```java
+public void showNumberYearAndMonthOfService() {
+  DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+  LocalDate startdated = LocalDate.parse(this.startdate, dateFormatter);
+  // tính số năm làm việc
+  int yearOfService = (int) (startdated.until(LocalDate.now(), ChronoUnit.DAYS) / 365.2425f);
+  // tính số tháng còn dư
+  int monthOfService = (int) ((startdated.until(LocalDate.now(), ChronoUnit.DAYS) - (yearOfService * 365.2425f)) / 30);
+  System.out.print(yearOfService + "năm, "+ monthOfService +" tháng");
+ }
+```
+4. Cách tính mức lương hiện tại của nhân viên.
+```java
+public void showNumberYearAndMonthOfService() {
+  DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+  LocalDate startdated = LocalDate.parse(this.startdate, dateFormatter);
+  // tính số năm làm việc
+  int yearOfService = (int) (startdated.until(LocalDate.now(), ChronoUnit.DAYS) / 365.2425f);
+  // tính số tháng còn dư
+  int monthOfService = (int) ((startdated.until(LocalDate.now(), ChronoUnit.DAYS) - (yearOfService * 365.2425f)) / 30);
+  System.out.print(yearOfService + "năm, "+ monthOfService +" tháng");
+ }
+```
